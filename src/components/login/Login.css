@@ -1,0 +1,13 @@
+.login-container {
+    min-height: 80vh;
+}
+.login-container form {
+    width: 50%;
+    height: 40vh;
+    border: 1px solid black;
+    background-color: rgba(235, 226, 146, 0.3);
+}
+.login-container form input {
+    width: 80%;
+    margin-top: 20px;
+}

@@ -1,0 +1,39 @@
+.user-dashboard {
+    margin: 2rem auto;
+}
+
+.dashboard-container {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.user-info,
+.price-info,
+.order-info {
+    height: auto;
+    position: relative;
+}
+.card-title {
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+}
+.card-data {
+    font-size: 4rem;
+}
+.dashboard-container > div {
+    margin: 0.5rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 0.4rem;
+}
+.user-order-history {
+    margin: 0.5rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    text-align: left;
+}
+.user-order-history ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}

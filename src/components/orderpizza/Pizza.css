@@ -1,0 +1,29 @@
+.pizza-container {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 10px 15px;
+    height: 270px;
+    padding: 10px;
+}
+.type-veg {
+    background-color: green;
+    width: 20px;
+    height: 20px;
+}
+.type-nonveg {
+    background-color: red;
+    width: 20px;
+    height: 20px;
+}
+.inner-start-container,
+.inner-middle-container,
+.inner-end-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    font-size: 1rem;
+}
+.inner-middle-container {
+    font-size: 0.9rem;
+}
