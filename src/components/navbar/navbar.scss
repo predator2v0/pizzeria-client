@@ -1,0 +1,18 @@
+@import '../../variable.scss';
+
+.navbar{
+    background-color: $color-accent-primary;
+    color: $color-text-inverted;
+}
+.navbar-brand h2{
+    color: $color-text-inverted;
+    margin: 0;
+    padding: 0;
+}
+.nav-link{
+    color: $color-text-inverted;
+}
+.user-icon{
+    height: 1.5rem;
+    width: 1.5rem;
+}
