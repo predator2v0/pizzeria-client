@@ -34,9 +34,6 @@ const Navbar = () => {
     );
 }
 
-export function CartCount({ cartItemCount }) {
-    return <span className='badge badge-light'>{cartItemCount}</span>;
-}
 const NavLoginMenu = () => {
     return (
         <div className="nav-login-menu-container" id="navLoginMenuContainer">

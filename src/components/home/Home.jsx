@@ -8,6 +8,7 @@ import futureOfPizzaDelivery from '../../assets/images/future_of_pizza_delivery.
 import moreChoicesLessHassle from '../../assets/images/more_choices_less_hassle.png'
 import easyOrderingProcess from '../../assets/images/easy_ordering_process.png'
 import bestQualityProductAndService from '../../assets/images/best_quality_product_and_services.png'
+
 const Home = () => {
     return (
         <div className='home-component'>

@@ -1,0 +1,41 @@
+@import '../../variable.scss';
+
+.registration-container {
+    background-color: $color-accent-secondary;
+    margin: 5rem 7rem;
+    padding: 2rem 3rem;
+
+    & .reg-form {
+        padding: 1rem 0;
+        width: 75%;
+
+        & .row-1,
+        & .row-2,
+        & .row-3,
+        & .row-4 {
+            margin: 1rem 0;
+            display: flex;
+
+            & input {
+                margin-right: 1rem;
+                width: 100%;
+                padding: 0.3rem;
+                border-radius: 0.5rem;
+            }
+        }
+
+        & .row-5 {
+            margin-top: 2rem;
+
+            input[type=submit] {
+                width: fit-content;
+                padding: 0.3rem 1rem;
+                border: none;
+                border-radius: 0.3rem;
+                outline: none;
+                background-color: $color-accent-tertiary;
+                color: $color-text-inverted;
+            }
+        }
+    }
+}

@@ -1,57 +1,25 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import axios from "axios";
-
-import "./Login.css";
-import { loginAction } from "../../redux/user/userActions.js";
+import "./login.scss";
+import loginFormBanner from "../../assets/images/login_form_banner.png"
 
 export default function Login() {
-    const authDispatch = useDispatch();
-    const navigate = useNavigate();
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const userLogin = async (e) => {
-        e.preventDefault();
-
-        try {
-            const userLoggedIn = await axios.post(
-                "http://localhost:4567/login",
-                { username, password },
-                { "Content-Type": "application/json" }
-            );
-            if (userLoggedIn) {
-                authDispatch(loginAction(username));
-                navigate("/dashboard");
-            }
-        } catch (err) {
-            window.alert(err.response.data.msg);
-        }
-    };
     return (
-        <div className='container login-container mt-5'>
-            <form method='POST'>
-                <div className='form-group form-vertical'>
-                    <input
-                        type='text'
-                        className='form-control ml-auto mr-auto'
-                        placeholder='username'
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                    <input
-                        type='password'
-                        className='form-control ml-auto mr-auto'
-                        placeholder='password'
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <input
-                        type='submit'
-                        className='btn btn-warning btn-large ml-auto mr-auto'
-                        value='login'
-                        onClick={userLogin}
-                    />
-                </div>
-            </form>
+        <div className="login-container">
+            <div className="login-form-banner" >
+                <img src={loginFormBanner} alt="" width={400} />
+            </div>
+            <div className="login-form-container">
+                <h2>Log In</h2>
+                <form action="" className="login-form">
+                    <div>
+                        <input type="text" name="emailID" id="emailId" placeholder="email" />
+                        <input type="password" name="password" id="password" placeholder="password" />
+                    </div>
+                    <div>
+                        <input type="submit" value="Log In" />
+                    </div>
+                </form>
+            </div>
+
         </div>
     );
 }

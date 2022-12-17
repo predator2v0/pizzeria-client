@@ -57,9 +57,11 @@
                     outline: none;
                     padding: 0.5rem;
                 }
-                & textarea{
+
+                & textarea {
                     resize: none;
                 }
+
                 & input[type=submit] {
                     width: fit-content;
                     padding: 0.3rem 1rem;

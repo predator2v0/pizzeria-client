@@ -24,9 +24,9 @@ function Footer() {
                 <h6 className='contact-us-heading'>Get in touch</h6>
                 <div className="contact-us-form-container">
                     <form action="" className="contact-us-form">
-                        <input type="text" name="contact-us-email" id="contact-us-email" placeholder='email id'/>
+                        <input type="text" name="contact-us-email" id="contact-us-email" placeholder='email id' />
                         <textarea name="contact-us-message" id="contact-us-message" cols="30" rows="7" placeholder='message'></textarea>
-                        <input type="submit" value="SEND"  />
+                        <input type="submit" value="SEND" />
                     </form>
                 </div>
             </div>

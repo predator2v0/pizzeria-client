@@ -8,6 +8,7 @@
 }
 
 /* END: Home component */
+
 /* START: Global Search */
 .search-container {
     display: flex;
@@ -43,6 +44,7 @@
 }
 
 /* END: Global Search */
+
 /* START: main header */
 .hero-section {
     display: flex;
@@ -111,12 +113,14 @@
         & .easy-order,
         & .quality-product {
             width: 25%;
-            & .image{
+
+            & .image {
                 width: 100%;
                 height: 11rem;
             }
-            & .content{
-                & .heading{
+
+            & .content {
+                & .heading {
                     margin-bottom: 1rem;
                 }
             }

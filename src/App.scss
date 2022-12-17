@@ -1,22 +1,35 @@
 @import "./variable.scss";
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: $font-body;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-body;
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: $font-heading;
+  font-family: $font-heading;
 }
 
 p,
 a {
-    font-family: $font-body;
+  font-family: $font-body;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 /* 
