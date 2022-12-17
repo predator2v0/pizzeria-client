@@ -1,0 +1,78 @@
+@import '../../variable.scss';
+
+.footer-section {
+    background-color: $color-accent-primary;
+    padding: 1rem 7rem;
+    display: flex;
+    justify-content: center;
+
+    & .footer-contents-container {
+        width: 45%;
+
+        & .copyright {
+            margin: 0;
+            padding: 0;
+        }
+
+        & .links-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            & .col1,
+            & .col2 {
+                display: flex;
+                flex-direction: column;
+                padding: 2rem 3rem 1rem 0;
+
+                & a {
+                    padding: 1rem 3rem 0 0;
+                    color: $color-text-inverted;
+                }
+            }
+        }
+    }
+
+    & .contact-us-container {
+        width: 45%;
+
+        & .contact-us-heading {
+            margin: 0;
+            padding: 0;
+        }
+
+        & .contact-us-form-container {
+            padding: 2rem 3rem 1rem 0;
+
+            & .contact-us-form {
+                display: flex;
+                flex-direction: column;
+                padding: 1rem 3rem 1rem 0;
+
+                & input[type=text],
+                & textarea {
+                    margin-bottom: 1rem;
+                    border-radius: 0.3rem;
+                    border: none;
+                    outline: none;
+                    padding: 0.5rem;
+                }
+
+                & textarea {
+                    resize: none;
+                }
+
+                & input[type=submit] {
+                    width: fit-content;
+                    padding: 0.3rem 1rem;
+                    border: none;
+                    border-radius: 0.3rem;
+                    outline: none;
+                    background-color: $color-accent-tertiary;
+                    color: $color-text-inverted;
+                }
+            }
+        }
+
+    }
+}

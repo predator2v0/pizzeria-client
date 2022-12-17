@@ -1,0 +1,45 @@
+@import '../../variable.scss';
+
+.navbar {
+    background-color: $color-accent-primary;
+    color: $color-text-inverted;
+    padding: 0 7rem;
+}
+
+.navbar-brand h2 {
+    color: $color-text-inverted;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: $color-text-inverted;
+}
+
+.user-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.nav-login-menu-container {
+    background-color: #d6d5d4;
+    position: fixed;
+    top: 3.5rem;
+    right: 7rem;
+    background-color: $color-accent-secondary;
+    padding: 0.5rem 0.3rem;
+    color: $color-text;
+    display: none;
+
+    & .nav-item {
+        list-style-type: none;
+
+        & .nav-link {
+            color: $color-text;
+        }
+    }
+}
+
+.show-nav-login-menu {
+    display: block;
+}

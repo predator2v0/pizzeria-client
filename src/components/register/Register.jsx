@@ -1,55 +1,33 @@
-import { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import './register.scss'
 
 const Register = () => {
-    const navigate = useNavigate();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const userRegister = async (e) => {
-        e.preventDefault();
-        try {
-            const userRegistered = await axios.post(
-                'http://localhost:4567/register',
-                { username, password },
-                { 'Content-Type': 'application/json' }
-            );
-            if (userRegistered) {
-                window.alert(userRegistered.data.msg);
-                navigate('/login');
-            }
-        } catch (err) {
-            window.alert(err.response.data.msg);
-        }
-    };
     return (
-        <div className='container login-container mt-5'>
-            <form method='POST'>
-                <div className='form-group form-vertical'>
-                    <input
-                        type='text'
-                        className='form-control ml-auto mr-auto'
-                        placeholder='username'
-                        name='username'
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                    <input
-                        type='password'
-                        className='form-control ml-auto mr-auto'
-                        placeholder='password'
-                        name='password'
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <input
-                        type='submit'
-                        className='btn btn-warning btn-large ml-auto mr-auto'
-                        value='register'
-                        onClick={userRegister}
-                    />
-                </div>
-            </form>
+        <div className='registration-container'>
+            <h2>Register</h2>
+            <div className="reg-form-container">
+                <form action="" className='reg-form'>
+                    <div className='row-1'>
+                        <input type="email" name="emailId" id="emailId" placeholder='email' />
+                        <input type="text" name="name" id="name" placeholder='name' />
+                    </div>
+                    <div className='row-2'>
+                        <input type="password" name="pass" id="pass" placeholder='password' />
+                        <input type="password" name="cpass" id="cpass" placeholder='confirm password' />
+                    </div>
+                    <div className='row-3'>
+                        <input type="text" name="address" id="address" placeholder='address' />
+                    </div>
+                    <div className='row-4'>
+                        <input type="text" name="state" id="state" placeholder='state' />
+                        <input type="number" name="zipCode" id="zipCode" placeholder='zip code' />
+                    </div>
+                    <div className="row-5">
+                        <input type="submit" name="register" id="register" value="REGISTER" />
+                    </div>
+                </form>
+            </div>
         </div>
-    );
+    )
 };
 
 export default Register;

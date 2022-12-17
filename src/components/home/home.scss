@@ -1,0 +1,131 @@
+@import '../../variable.scss';
+
+/* START: Home component */
+.home-component {
+    width: 100%;
+    height: auto;
+    padding: 7rem 5rem;
+}
+
+/* END: Home component */
+
+/* START: Global Search */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-item {
+    border: none;
+    outline: none;
+    background-color: $color-grey-shade;
+    height: 2.5rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 0.5rem;
+    width: 20rem;
+}
+
+.search-button {
+    height: 2.5rem;
+    width: 4rem;
+    border: none;
+    outline: none !important;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: $color-accent-tertiary;
+    padding: 0.5rem;
+}
+
+.search-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* END: Global Search */
+
+/* START: main header */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7rem;
+
+    & .main-banner-img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* END: main header */
+
+/* START: Pizzeria for section */
+.pizzeria-for-section {
+    padding: 0 7rem 7rem;
+
+    & .section-heading {
+        text-align: center;
+    }
+
+    & .fast-n-easy,
+    & .order-like-pro,
+    & .pizza-delivery-future {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & .content,
+        & .image {
+            width: 45%;
+        }
+    }
+
+    .order-like-pro {
+        flex-direction: row-reverse;
+    }
+
+    .image {
+        & .feature-image {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+/* END; Pizzeria for section */
+
+// START: We Offer section
+.we-offer-section {
+    padding: 0 7rem 7rem;
+
+    & .section-heading {
+        text-align: center;
+        padding-bottom: 3rem;
+    }
+
+    & .we-offer-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+
+        & .more-choice,
+        & .easy-order,
+        & .quality-product {
+            width: 25%;
+
+            & .image {
+                width: 100%;
+                height: 11rem;
+            }
+
+            & .content {
+                & .heading {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+}
+
+// End: We Offer section
