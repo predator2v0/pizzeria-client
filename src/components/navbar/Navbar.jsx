@@ -23,7 +23,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link className='nav-link'>
+                        <Link className='nav-link' to="#">
                             <img src={userIcon} alt="user icon" className="user-icon" id="userLoginIcon" onClick={toggleLoginMenu} />
                         </Link>
                         <NavLoginMenu />
