@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { toggleLoginMenu } from "./navUtil";
+import { toggleLoginMenu } from "../../utils/navbar/navUtil";
 import './navbar.scss'
 import userIcon from '../../assets/images/user.svg'
 const Navbar = () => {
