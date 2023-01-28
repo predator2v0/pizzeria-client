@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import constants from "../../utils/constants/constants";
-import { doValidation } from "../../utils/registration/registrationUtils";
+import { doValidation, allValid, applyInvalidClass } from "../../utils/registration/registrationUtils";
 import "./register.scss";
 
 const Register = () => {
@@ -25,24 +25,33 @@ const Register = () => {
 
     const doRegistration = (e) => {
         e.preventDefault();
-        const registerObject = {
-            email: userData.emailId,
-            name: userData.name,
-            password: userData.pass,
-            address: userData.address,
-            state: userData.state,
-            pincode: userData.pincode,
-        };
-        axios
-            .post(registerURL, registerObject, {
-                "Content-Type": "Application/json",
-            })
-            .then((response) => {
-                alert(response.data.msg);
-            })
-            .catch((err) => {
-                alert(err.response.data.msg);
-            });
+        if (userData.pass !== userData.cpass) {
+            applyInvalidClass('cpass')
+            alert("password must be similar to confirm password!");
+        } else {
+            if (allValid(userData)) {
+                const registerObject = {
+                    email: userData.emailId,
+                    name: userData.name,
+                    password: userData.pass,
+                    address: userData.address,
+                    state: userData.state,
+                    pincode: userData.pincode,
+                };
+                axios
+                    .post(registerURL, registerObject, {
+                        "Content-Type": "Application/json",
+                    })
+                    .then((response) => {
+                        alert(response.data.msg);
+                    })
+                    .catch((err) => {
+                        alert(err.response.data.msg);
+                    });
+            } else {
+                alert("please fill all the fields correctly!");
+            }
+        }
     };
     return (
         <div className='registration-container'>
@@ -57,6 +66,7 @@ const Register = () => {
                             placeholder='email*'
                             onChange={(e) => handleChange(e)}
                             onBlur={(e) =>
+                                e.target.value &&
                                 doValidation(
                                     e.target.id,
                                     e.target.name,
@@ -71,6 +81,7 @@ const Register = () => {
                             placeholder='name*'
                             onChange={(e) => handleChange(e)}
                             onBlur={(e) =>
+                                e.target.value &&
                                 doValidation(
                                     e.target.id,
                                     e.target.name,
@@ -87,6 +98,7 @@ const Register = () => {
                             placeholder='password*'
                             onChange={(e) => handleChange(e)}
                             onBlur={(e) =>
+                                e.target.value &&
                                 doValidation(
                                     e.target.id,
                                     e.target.name,
@@ -101,6 +113,7 @@ const Register = () => {
                             placeholder='confirm password*'
                             onChange={(e) => handleChange(e)}
                             onBlur={(e) =>
+                                e.target.value &&
                                 doValidation(
                                     e.target.id,
                                     e.target.name,
@@ -117,6 +130,7 @@ const Register = () => {
                             placeholder='address*'
                             onChange={(e) => handleChange(e)}
                             onBlur={(e) =>
+                                e.target.value &&
                                 doValidation(
                                     e.target.id,
                                     e.target.name,
@@ -133,6 +147,7 @@ const Register = () => {
                             placeholder='state*'
                             onChange={(e) => handleChange(e)}
                             onBlur={(e) =>
+                                e.target.value &&
                                 doValidation(
                                     e.target.id,
                                     e.target.name,
@@ -147,6 +162,7 @@ const Register = () => {
                             placeholder='pin code*'
                             onChange={(e) => handleChange(e)}
                             onBlur={(e) =>
+                                e.target.value &&
                                 doValidation(
                                     e.target.id,
                                     e.target.name,
