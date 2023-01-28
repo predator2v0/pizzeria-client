@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
-import "./register.scss";
 import constants from "../../utils/constants/constants";
+import { doValidation } from "../../utils/registration/registrationUtils";
+import "./register.scss";
 
 const Register = () => {
     const registerURL =
@@ -13,9 +14,8 @@ const Register = () => {
         cpass: "",
         address: "",
         state: "",
-        pinCode: "",
+        pincode: "",
     });
-
     const handleChange = (e) => {
         let key = e.target.name;
         let value = e.target.value;
@@ -25,30 +25,23 @@ const Register = () => {
 
     const doRegistration = (e) => {
         e.preventDefault();
-        // !remove comment
-        console.log(userData);
         const registerObject = {
             email: userData.emailId,
             name: userData.name,
             password: userData.pass,
             address: userData.address,
             state: userData.state,
-            pinCode: userData.pinCode,
+            pincode: userData.pincode,
         };
-        // !remove comment
-        console.log(registerObject);
-        console.log(registerURL);
         axios
             .post(registerURL, registerObject, {
                 "Content-Type": "Application/json",
             })
             .then((response) => {
-                alert("user registered successfully");
-                console.log(response);
+                alert(response.data.msg);
             })
             .catch((err) => {
-                alert("user not registered");
-                console.log(err);
+                alert(err.response.data.msg);
             });
     };
     return (
@@ -61,15 +54,29 @@ const Register = () => {
                             type='email'
                             name='emailId'
                             id='emailId'
-                            placeholder='email'
+                            placeholder='email*'
                             onChange={(e) => handleChange(e)}
+                            onBlur={(e) =>
+                                doValidation(
+                                    e.target.id,
+                                    e.target.name,
+                                    e.target.value
+                                )
+                            }
                         />
                         <input
                             type='text'
                             name='name'
                             id='name'
-                            placeholder='name'
+                            placeholder='name*'
                             onChange={(e) => handleChange(e)}
+                            onBlur={(e) =>
+                                doValidation(
+                                    e.target.id,
+                                    e.target.name,
+                                    e.target.value
+                                )
+                            }
                         />
                     </div>
                     <div className='row-2'>
@@ -77,15 +84,29 @@ const Register = () => {
                             type='password'
                             name='pass'
                             id='pass'
-                            placeholder='password'
+                            placeholder='password*'
                             onChange={(e) => handleChange(e)}
+                            onBlur={(e) =>
+                                doValidation(
+                                    e.target.id,
+                                    e.target.name,
+                                    e.target.value
+                                )
+                            }
                         />
                         <input
                             type='password'
                             name='cpass'
                             id='cpass'
-                            placeholder='confirm password'
+                            placeholder='confirm password*'
                             onChange={(e) => handleChange(e)}
+                            onBlur={(e) =>
+                                doValidation(
+                                    e.target.id,
+                                    e.target.name,
+                                    e.target.value
+                                )
+                            }
                         />
                     </div>
                     <div className='row-3'>
@@ -93,8 +114,15 @@ const Register = () => {
                             type='text'
                             name='address'
                             id='address'
-                            placeholder='address'
+                            placeholder='address*'
                             onChange={(e) => handleChange(e)}
+                            onBlur={(e) =>
+                                doValidation(
+                                    e.target.id,
+                                    e.target.name,
+                                    e.target.value
+                                )
+                            }
                         />
                     </div>
                     <div className='row-4'>
@@ -102,18 +130,35 @@ const Register = () => {
                             type='text'
                             name='state'
                             id='state'
-                            placeholder='state'
+                            placeholder='state*'
                             onChange={(e) => handleChange(e)}
+                            onBlur={(e) =>
+                                doValidation(
+                                    e.target.id,
+                                    e.target.name,
+                                    e.target.value
+                                )
+                            }
                         />
                         <input
                             type='number'
-                            name='pinCode'
-                            id='pinCode'
-                            placeholder='pin code'
+                            name='pincode'
+                            id='pincode'
+                            placeholder='pin code*'
                             onChange={(e) => handleChange(e)}
+                            onBlur={(e) =>
+                                doValidation(
+                                    e.target.id,
+                                    e.target.name,
+                                    e.target.value
+                                )
+                            }
                         />
                     </div>
-                    <div className='row-5'>
+                    <div className='row-5' id='error-container'>
+                        <p>* are mandatory fields</p>
+                    </div>
+                    <div className='row-6'>
                         <input
                             type='submit'
                             name='register'
