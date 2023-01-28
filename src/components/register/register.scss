@@ -23,8 +23,11 @@
                 border-radius: 0.5rem;
             }
         }
+        & .row-5{
+            color: $color-error;
+        }
 
-        & .row-5 {
+        & .row-6 {
             margin-top: 2rem;
 
             input[type=submit] {
@@ -38,4 +41,10 @@
             }
         }
     }
+}
+.invalid{
+    border: 2px solid $color-error;
+}
+.valid{
+    border: 2px solid $color-success;
 }
