@@ -82,7 +82,7 @@ const validateState = (state) => {
 };
 
 const validatePinCode = (pinCode) => {
-    const pinCodePattern = new RegExp(/[0-9]{6}/);
+    const pinCodePattern = new RegExp(/^[1-9][0-9]{5}$/);
     if (!pinCode || !pinCodePattern.test(pinCode)) {
         return false;
     } else {
@@ -127,17 +127,25 @@ export const doValidation = (id, name, value) => {
     }
 };
 
-const applyValidClass = (id) => {
+export const applyValidClass = (id) => {
     let classList = document.getElementById(id).classList;
     if (classList.contains("invalid")) {
         classList.remove("invalid");
     }
     classList.add("valid");
 };
-const applyInvalidClass = (id) => {
+export const applyInvalidClass = (id) => {
     let classList = document.getElementById(id).classList;
     if (classList.contains("valid")) {
         classList.remove("valid");
     }
     classList.add("invalid");
 };
+
+export const allValid = (userData) =>{
+    const {emailId, name, pass, cpass, address, state, pincode} = userData;
+    if(validateEmail(emailId) && validateName(name) && validatePassword(pass) && validatePassword(cpass)&& validateAddress(address) && validateState(state) && validatePinCode(pincode)){
+        return true;
+    }
+    return false;
+}
