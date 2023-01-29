@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import constants from "../../utils/constants/constants";
-import { doValidation, allValid, applyInvalidClass } from "../../utils/registration/registrationUtils";
+import { doRegistrationValidation, allValid } from "../../utils/registration/registrationUtils";
+import { applyInvalidClass } from "../../utils/formValidations/validation";
 import "./register.scss";
 
 const Register = () => {
@@ -21,12 +22,13 @@ const Register = () => {
         let value = e.target.value;
 
         setUserData({ ...userData, [key]: value });
+        doRegistrationValidation(e.target.id, e.target.name, e.target.value);
     };
 
     const doRegistration = (e) => {
         e.preventDefault();
         if (userData.pass !== userData.cpass) {
-            applyInvalidClass('cpass')
+            applyInvalidClass("cpass");
             alert("password must be similar to confirm password!");
         } else {
             if (allValid(userData)) {
@@ -65,14 +67,6 @@ const Register = () => {
                             id='emailId'
                             placeholder='email*'
                             onChange={(e) => handleChange(e)}
-                            onBlur={(e) =>
-                                e.target.value &&
-                                doValidation(
-                                    e.target.id,
-                                    e.target.name,
-                                    e.target.value
-                                )
-                            }
                         />
                         <input
                             type='text'
@@ -80,14 +74,6 @@ const Register = () => {
                             id='name'
                             placeholder='name*'
                             onChange={(e) => handleChange(e)}
-                            onBlur={(e) =>
-                                e.target.value &&
-                                doValidation(
-                                    e.target.id,
-                                    e.target.name,
-                                    e.target.value
-                                )
-                            }
                         />
                     </div>
                     <div className='row-2'>
@@ -97,14 +83,6 @@ const Register = () => {
                             id='pass'
                             placeholder='password*'
                             onChange={(e) => handleChange(e)}
-                            onBlur={(e) =>
-                                e.target.value &&
-                                doValidation(
-                                    e.target.id,
-                                    e.target.name,
-                                    e.target.value
-                                )
-                            }
                         />
                         <input
                             type='password'
@@ -112,14 +90,6 @@ const Register = () => {
                             id='cpass'
                             placeholder='confirm password*'
                             onChange={(e) => handleChange(e)}
-                            onBlur={(e) =>
-                                e.target.value &&
-                                doValidation(
-                                    e.target.id,
-                                    e.target.name,
-                                    e.target.value
-                                )
-                            }
                         />
                     </div>
                     <div className='row-3'>
@@ -129,14 +99,6 @@ const Register = () => {
                             id='address'
                             placeholder='address*'
                             onChange={(e) => handleChange(e)}
-                            onBlur={(e) =>
-                                e.target.value &&
-                                doValidation(
-                                    e.target.id,
-                                    e.target.name,
-                                    e.target.value
-                                )
-                            }
                         />
                     </div>
                     <div className='row-4'>
@@ -146,14 +108,6 @@ const Register = () => {
                             id='state'
                             placeholder='state*'
                             onChange={(e) => handleChange(e)}
-                            onBlur={(e) =>
-                                e.target.value &&
-                                doValidation(
-                                    e.target.id,
-                                    e.target.name,
-                                    e.target.value
-                                )
-                            }
                         />
                         <input
                             type='number'
@@ -161,14 +115,6 @@ const Register = () => {
                             id='pincode'
                             placeholder='pin code*'
                             onChange={(e) => handleChange(e)}
-                            onBlur={(e) =>
-                                e.target.value &&
-                                doValidation(
-                                    e.target.id,
-                                    e.target.name,
-                                    e.target.value
-                                )
-                            }
                         />
                     </div>
                     <div className='row-5' id='error-container'>

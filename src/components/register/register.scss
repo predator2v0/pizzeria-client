@@ -21,6 +21,8 @@
                 width: 100%;
                 padding: 0.3rem;
                 border-radius: 0.5rem;
+                border: none;
+                outline: none;
             }
         }
         & .row-5{
@@ -43,8 +45,8 @@
     }
 }
 .invalid{
-    border: 2px solid $color-error;
+    border: 2px solid $color-error !important;
 }
 .valid{
-    border: 2px solid $color-success;
+    border: 2px solid $color-success !important;
 }
