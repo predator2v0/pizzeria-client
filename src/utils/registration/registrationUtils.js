@@ -142,10 +142,18 @@ export const applyInvalidClass = (id) => {
     classList.add("invalid");
 };
 
-export const allValid = (userData) =>{
-    const {emailId, name, pass, cpass, address, state, pincode} = userData;
-    if(validateEmail(emailId) && validateName(name) && validatePassword(pass) && validatePassword(cpass)&& validateAddress(address) && validateState(state) && validatePinCode(pincode)){
+export const allValid = (userData) => {
+    const { emailId, name, pass, cpass, address, state, pincode } = userData;
+    if (
+        validateEmail(emailId) &&
+        validateName(name) &&
+        validatePassword(pass) &&
+        validatePassword(cpass) &&
+        validateAddress(address) &&
+        validateState(state) &&
+        validatePinCode(pincode)
+    ) {
         return true;
     }
     return false;
-}
+};
