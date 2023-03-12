@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 import Pizza from "./Pizza";
 
 const Order = () => {
     const [response, setResponse] = useState([]);
     useEffect(() => {
+        const searchQuery = window.location.search.replace("?", "").trim();
+        let url;
+        if (searchQuery) {
+            url = `http://localhost:4567/pizza?q=${searchQuery}`;
+        } else {
+            url = "http://localhost:4567/pizza";
+        }
+        console.log(url);
         axios
-            .get("http://localhost:4567/pizza")
+            .get(url)
             .then((res) => {
                 setResponse(res.data);
             })
