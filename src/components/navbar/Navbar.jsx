@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { toggleLoginMenu } from "../../utils/navbar/navUtil";
 import './navbar.scss'
 import userIcon from '../../assets/images/user.svg'
+import {BiUserCircle} from 'react-icons/bi'
 const Navbar = () => {
     return (
         <nav className='navbar navbar-expand-md rounded text-white'>
@@ -24,7 +25,8 @@ const Navbar = () => {
                     </li>
                     <li className='nav-item'>
                         <Link className='nav-link' to="#">
-                            <img src={userIcon} alt="user icon" className="user-icon" id="userLoginIcon" onClick={toggleLoginMenu} />
+                            {/* <img src={userIcon} alt="user icon" className="user-icon" id="userLoginIcon" onClick={toggleLoginMenu} /> */}
+                            <BiUserCircle className="user-icon" id="userLoginIcon" onClick={toggleLoginMenu}/>
                         </Link>
                         <NavLoginMenu />
                     </li>

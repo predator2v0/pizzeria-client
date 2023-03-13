@@ -9,7 +9,6 @@ import moreChoicesLessHassle from "../../assets/images/more_choices_less_hassle.
 import orderPizzaLikeThePros from "../../assets/images/order_pizza_like_the_pros.png";
 import searchIcon from "../../assets/images/search-icon.svg";
 import "./home.scss";
-
 const Home = () => {
     return (
         <div className='home-component'>
